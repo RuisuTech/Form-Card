@@ -18,10 +18,10 @@ Los diseños fueron creados con los siguientes anchos:
 
 ### Neutrales
 
-- Blanco: hsl(0,0%,100%)
-- Violeta grisáceo claro: hsl(270,3%,87%)
-- Violeta grisáceo oscuro: hsl(279,6%,55%)
-- Violeta muy oscuro: hsl(278,68%,11%)
+- Blanco: #ffffff
+- Violeta grisáceo claro: #dedddf
+- Violeta grisáceo oscuro: #8e8593
+- Violeta muy oscuro: #21092f
 
 ## Tipografía
 
