@@ -55,7 +55,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
           type="text"
           name="CardName"
           id="CardName"
-          placeholder="e.g Jane Appleseed"
+          placeholder="Su nombre"
           onChange={(e) => setCardName(e.target.value)}
         />
         <p className="text-[#21092f] mt-4">CARD NUMBER</p>
@@ -64,7 +64,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
           type="text"
           name="CardNumber"
           id="CardNumber"
-          placeholder="e.g. 1234 5678 9123 0000"
+          placeholder="1234 5678 9123 0000"
           value={cardNumber}
           onChange={handleCardNumberChange}
           maxLength={19} // 16 digits + 3 spaces
@@ -103,7 +103,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
               type="text"
               name="CardCvc"
               id="CardCvc"
-              placeholder="e.g. 123"
+              placeholder="123"
               maxLength={3}
               onChange={(e) => setCvc(e.target.value)}
             />

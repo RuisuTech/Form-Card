@@ -40,7 +40,7 @@ const RenderCards: React.FC<RenderCardProps> = ({
             />
             <p className="md:mt-[80px] md:text-3xl mt-8 text-xl tracking-wider">{formatCardNumber(cardNumber) || '0000 0000 0000 0000'}</p>
             <div className="mt-3 flex justify-between text-xs md:text-sm">
-              <p>{cardName || 'JANE APPLESEED'}</p>
+              <p>{cardName || 'Su nombre'}</p>
               <p>{formatExpDate(expMonth, expYear) || '00/00'}</p>
             </div>
           </div>
