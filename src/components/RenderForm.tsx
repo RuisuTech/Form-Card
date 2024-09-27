@@ -112,7 +112,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
         <input
           className="bg-[#21092f] text-[white] w-full my-8 p-4 rounded-xl"
           type="button"
-          value="Confirm"
+          value="Confirmar"
           onClick={onConfirm}
         />
       </div>
