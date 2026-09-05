@@ -2,7 +2,7 @@
 
 Interactive credit card details form built with React, TypeScript, and Tailwind CSS. Part of the [Frontend Mentor](https://www.frontendmentor.io) challenges.
 
-![Desktop Preview](./design/desktop-preview.jpg)
+![Desktop Preview](./src/assets/design/desktop-preview.jpg)
 
 ## Features
 
@@ -44,9 +44,12 @@ npm run preview
 src/
 ├── main.tsx              # Entry point
 ├── App.tsx               # Root component & state
+├── App.css               # Global styles
+├── index.css             # Tailwind base styles
 ├── components/
-│   ├── RenderForm.tsx    # Input form
+│   ├── RenderForm.tsx    # Input form with validation
 │   ├── RenderCards.tsx   # Live card display
 │   └── RenderComplete.tsx # Success screen
-└── assets/               # Design files
+└── assets/
+    └── design/           # Design reference files
 ```
