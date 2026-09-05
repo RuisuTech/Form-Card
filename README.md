@@ -1,55 +1,55 @@
-# Form Card - Interactive Credit Card Form
+# Form Card - Formulario de Tarjeta de Crédito Interactivo
 
-Interactive credit card details form built with React, TypeScript, and Tailwind CSS. Part of the [Frontend Mentor](https://www.frontendmentor.io) challenges.
+Formulario interactivo de detalles de tarjeta de crédito construido con React, TypeScript y Tailwind CSS. Parte de los desafíos de [Frontend Mentor](https://www.frontendmentor.io).
 
-![Desktop Preview](./src/assets/design/desktop-preview.jpg)
+![Vista previa de escritorio](./src/assets/design/desktop-preview.jpg)
 
-## Features
+## Características
 
-- Live credit card preview that updates as you type
-- Card number formatting (groups of 4 digits)
-- Expiry date and CVC display
-- Responsive design (mobile & desktop)
-- Form → Confirmation screen transition
+- Vista previa en vivo de la tarjeta que se actualiza al escribir
+- Formateo del número de tarjeta (grupos de 4 dígitos)
+- Visualización de fecha de expiración y CVC
+- Diseño responsivo (móvil y escritorio)
+- Transición de formulario a pantalla de confirmación
 
-## Tech Stack
+## Tecnologías
 
-| Tool | Purpose |
-|------|---------|
-| React 18 | UI library |
-| TypeScript | Type safety |
-| Vite | Build tool |
-| Tailwind CSS | Styling |
-| SWC | Fast compilation |
+| Herramienta | Propósito |
+|-------------|-----------|
+| React 18 | Librería de UI |
+| TypeScript | Seguridad de tipos |
+| Vite | Herramienta de build |
+| Tailwind CSS | Estilos |
+| SWC | Compilación rápida |
 
-## Getting Started
+## Inicio rápido
 
 ```bash
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Development server
+# Servidor de desarrollo
 npm run dev
 
-# Build for production
+# Build para producción
 npm run build
 
-# Preview production build
+# Vista previa del build de producción
 npm run preview
 ```
 
-## Project Structure
+## Estructura del proyecto
 
 ```
 src/
-├── main.tsx              # Entry point
-├── App.tsx               # Root component & state
-├── App.css               # Global styles
-├── index.css             # Tailwind base styles
+├── main.tsx              # Punto de entrada
+├── App.tsx               # Componente raíz y estado
+├── App.css               # Estilos globales
+├── index.css             # Estilos base de Tailwind
 ├── components/
-│   ├── RenderForm.tsx    # Input form with validation
-│   ├── RenderCards.tsx   # Live card display
-│   └── RenderComplete.tsx # Success screen
+│   ├── RenderForm.tsx    # Formulario con validación
+│   ├── RenderCards.tsx   # Visualización de tarjeta en vivo
+│   └── RenderComplete.tsx # Pantalla de éxito
 └── assets/
-    └── design/           # Design reference files
+    └── design/           # Archivos de referencia de diseño
 ```
