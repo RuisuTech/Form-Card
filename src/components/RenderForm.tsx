@@ -6,7 +6,11 @@ interface RenderFormProps {
   setExpMonth: (value: string) => void;
   setExpYear: (value: string) => void;
   setCvc: (value: string) => void;
-  onConfirm: () => void; // Propiedad obligatoria para manejar el clic en Confirm
+  onConfirm: () => void;
+  textColor: string;
+  borderColor: string;
+  inputBg: string;
+  inputText: string;
 }
 
 const formatCardNumber = (number: string): string => {
@@ -21,7 +25,11 @@ const RenderForm: React.FC<RenderFormProps> = ({
   setExpMonth,
   setExpYear,
   setCvc,
-  onConfirm
+  onConfirm,
+  textColor,
+  borderColor,
+  inputBg,
+  inputText,
 }) => {
   const [cardNumber, setCardNumberState] = React.useState('');
   const [expMonth, setExpMonthState] = React.useState('');
@@ -46,34 +54,39 @@ const RenderForm: React.FC<RenderFormProps> = ({
     setExpYear(year);
   };
 
+  const inputClass = `rounded border-2 py-1 px-2 w-full mt-1`;
+
   return (
     <div className="flex flex-col justify-center items-center mt-4 w-full text-[14px] font-medium">
       <div className="w-[320px]">
-        <p className="text-[#21092f] mt-4">CARDHOLDER NAME</p>
+        <p className="mt-4" style={{ color: textColor }}>NOMBRE DEL TITULAR</p>
         <input
-          className="text-black rounded border-2 border-[#dedddf] py-1 px-2 w-full mt-1"
+          className={inputClass}
+          style={{ backgroundColor: inputBg, color: inputText, borderColor }}
           type="text"
           name="CardName"
           id="CardName"
           placeholder="Su nombre"
           onChange={(e) => setCardName(e.target.value)}
         />
-        <p className="text-[#21092f] mt-4">CARD NUMBER</p>
+        <p className="mt-4" style={{ color: textColor }}>NÚMERO DE TARJETA</p>
         <input
-          className="text-black rounded border-2 border-[#dedddf] py-1 px-2 w-full mt-1"
+          className={inputClass}
+          style={{ backgroundColor: inputBg, color: inputText, borderColor }}
           type="text"
           name="CardNumber"
           id="CardNumber"
           placeholder="1234 5678 9123 0000"
           value={cardNumber}
           onChange={handleCardNumberChange}
-          maxLength={19} // 16 digits + 3 spaces
+          maxLength={19}
         />
         <div className="flex gap-2 w-full mt-4">
           <div className="w-1/4">
-            <p className="text-[#21092f]">EXP. DATE</p>
+            <p style={{ color: textColor }}>FECHA EXP.</p>
             <input
-              className="text-black rounded border-2 border-[#dedddf] py-1 px-2 w-full mt-1"
+              className={inputClass}
+              style={{ backgroundColor: inputBg, color: inputText, borderColor }}
               type="text"
               name="CardTimeMonth"
               id="CardTimeMonth"
@@ -84,22 +97,24 @@ const RenderForm: React.FC<RenderFormProps> = ({
             />
           </div>
           <div className="w-1/4">
-            <p className="text-[#21092f]">(MM/YY)</p>
+            <p style={{ color: textColor }}>(MM/AA)</p>
             <input
-              className="text-black rounded border-2 border-[#dedddf] py-1 px-2 w-full mt-1"
+              className={inputClass}
+              style={{ backgroundColor: inputBg, color: inputText, borderColor }}
               type="text"
               name="CardTimeYear"
               id="CardTimeYear"
-              placeholder="YY"
+              placeholder="AA"
               maxLength={2}
               value={expYear}
               onChange={handleExpYearChange}
             />
           </div>
           <div className="w-1/2">
-            <p className="text-[#21092f]">CVC</p>
+            <p style={{ color: textColor }}>CVC</p>
             <input
-              className="text-black rounded border-2 border-[#dedddf] py-1 px-2 w-full mt-1"
+              className={inputClass}
+              style={{ backgroundColor: inputBg, color: inputText, borderColor }}
               type="text"
               name="CardCvc"
               id="CardCvc"
@@ -110,7 +125,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
           </div>
         </div>
         <input
-          className="bg-[#21092f] text-[white] w-full my-8 p-4 rounded-xl"
+          className="bg-[#21092f] text-white w-full my-8 p-4 rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
           type="button"
           value="Confirmar"
           onClick={onConfirm}

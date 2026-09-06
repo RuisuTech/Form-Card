@@ -6,6 +6,8 @@ interface RenderCardProps {
   expMonth: string;
   expYear: string;
   cvc: string;
+  cardImage?: string;
+  textColor?: string;
 }
 
 const formatCardNumber = (number: string): string => {
@@ -23,16 +25,26 @@ const RenderCards: React.FC<RenderCardProps> = ({
   cardNumber,
   expMonth,
   expYear,
-  cvc
+  cvc,
+  cardImage,
+  textColor = '#dedddf'
 }) => {
   return (
-    <div className="h-[225px] w-screen md:h-screen md:w-[600px] bg-cover bg-[url('/bg-main-mobile.png')] md:bg-[url('/bg-main-desktop.png')]">
+    <div className={`relative h-[225px] w-screen md:h-screen md:w-[600px]`}>
+      <div
+        className={`absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat blur-sm ${!cardImage ? "bg-[url('/bg-main-mobile.png')] md:bg-[url('/bg-main-desktop.png')]" : ""}`}
+        style={cardImage ? { backgroundImage: `url(${cardImage})` } : undefined}
+      />
+      <div className="absolute inset-0 z-[-1] bg-black/50" />
       <div className="flex items-center justify-center h-[300px] w-screen">
-        <div className="md:w-[420px] md:h-[232px] md:bottom-[250px] md:left-[400px] md:top-auto flex z-30 bg-[url('/bg-card-back.png')] bg-contain bg-no-repeat w-[280px] h-[155px] absolute top-6 right-6">
-          <p className="md:top-[98px] md:right-12 md:text-xl absolute top-[62px] right-8 text-[#dedddf]">{cvc || '000'}</p>
+        <div className="md:w-[420px] md:h-[232px] md:bottom-[250px] md:left-[400px] md:top-auto flex z-30 bg-[url('/bg-card-back.png')] bg-contain bg-no-repeat w-[280px] h-[155px] absolute top-6 right-6 rounded-2xl overflow-hidden">
+          <p className="md:top-[98px] md:right-12 md:text-xl absolute top-[62px] right-8" style={{ color: textColor }}>{cvc || '000'}</p>
         </div>
-        <div className="md:w-[420px] md:h-[232px] md:bottom-[500px] md:left-[300px] md:top-auto flex z-50 bg-[url('/bg-card-front.png')] bg-contain bg-no-repeat w-[280px] h-[155px] absolute top-[110px] left-6">
-          <div className="w-full p-4 text-[#dedddf]">
+        <div
+          className={`md:w-[420px] md:h-[232px] md:bottom-[500px] md:left-[300px] md:top-auto flex z-50 bg-cover bg-center bg-no-repeat w-[280px] h-[155px] absolute top-[110px] left-6 rounded-2xl overflow-hidden ${!cardImage ? "bg-[url('/bg-card-front.png')]" : ""}`}
+          style={cardImage ? { backgroundImage: `url(${cardImage})` } : undefined}
+        >
+          <div className="w-full p-4 relative z-10" style={{ color: textColor }}>
             <img
               className="w-auto h-[30px]"
               src="/card-logo.svg"

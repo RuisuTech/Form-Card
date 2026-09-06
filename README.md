@@ -1,16 +1,19 @@
-# Form Card - Formulario de Tarjeta de Crédito Interactivo
+# NextCARD - Tarjeta de Crédito Personalizable
 
-Formulario interactivo de detalles de tarjeta de crédito construido con React, TypeScript y Tailwind CSS. Parte de los desafíos de [Frontend Mentor](https://www.frontendmentor.io).
-
-![Vista previa de escritorio](./src/assets/design/desktop-preview.jpg)
+Formulario interactivo de tarjeta de crédito con diseño personalizable. Sube tu propia imagen y los colores se adaptan automáticamente.
 
 ## Características
 
 - Vista previa en vivo de la tarjeta que se actualiza al escribir
+- **Sube tu imagen personalizada**: Waifu, paisaje, abstracto, lo que quieras
+- **Colores adaptativos**: El fondo del formulario y la UI cambian según el color dominante de tu imagen
+- **Contraste automático**: Los textos cambian entre claro/oscuro según el fondo para mantener legibilidad
+- **Fondo difuminado**: Efecto blur + overlay oscuro en el fondo de las tarjetas
 - Formateo del número de tarjeta (grupos de 4 dígitos)
 - Visualización de fecha de expiración y CVC
 - Diseño responsivo (móvil y escritorio)
 - Transición de formulario a pantalla de confirmación
+- Todos los textos en español
 
 ## Tecnologías
 
@@ -49,7 +52,10 @@ src/
 ├── components/
 │   ├── RenderForm.tsx    # Formulario con validación
 │   ├── RenderCards.tsx   # Visualización de tarjeta en vivo
-│   └── RenderComplete.tsx # Pantalla de éxito
+│   ├── RenderComplete.tsx # Pantalla de éxito
+│   └── Customize.tsx     # Panel de personalización de imagen
+├── hooks/
+│   └── useDominantColor.ts # Hook para extraer color dominante
 └── assets/
     └── design/           # Archivos de referencia de diseño
 ```
