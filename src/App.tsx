@@ -14,7 +14,7 @@ function App() {
   const [expYear, setExpYear] = useState('');
   const [cvc, setCvc] = useState('');
   const [isComplete, setIsComplete] = useState(false);
-  const [cardImage, setCardImage] = useState('');
+  const [cardImage, setCardImage] = useState('/default-bg.jpg');
 
   const dominantColor = useDominantColor(cardImage);
 
@@ -29,7 +29,7 @@ function App() {
     setExpYear('');
     setCvc('');
     setIsComplete(false);
-    setCardImage('');
+    setCardImage('/default-bg.jpg');
   };
 
   const handleImageChange = (imageUrl: string) => {
@@ -46,15 +46,16 @@ function App() {
         cvc={cvc}
         cardImage={cardImage}
         textColor={dominantColor.textColor}
+        overlayGradient={dominantColor.overlayGradient}
       />
       <div
-        className="flex flex-col justify-center items-center p-8 w-full flex-1 text-[14px] font-medium transition-colors duration-500 md:min-h-0 md:h-screen md:max-w-[calc(100vw-600px)] overflow-auto"
-        style={{ backgroundColor: dominantColor.color || '#ffffff' }}
+        className="flex flex-col justify-center items-center p-8 w-full flex-1 text-[14px] font-medium transition-all duration-500 md:min-h-0 md:h-screen md:max-w-[calc(100vw-600px)] overflow-auto"
+        style={{ backgroundImage: dominantColor.gradient, backgroundColor: '#ffffff' }}
       >
         <div className="w-[320px]">
           <Customize onImageChange={handleImageChange} textColor={dominantColor.textColor} borderColor={dominantColor.borderColor} />
           {isComplete ? (
-            <RenderComplete onContinue={handleContinueClick} textColor={dominantColor.textColor} borderColor={dominantColor.borderColor} />
+            <RenderComplete onContinue={handleContinueClick} textColor={dominantColor.textColor} borderColor={dominantColor.borderColor} buttonColor={dominantColor.buttonColor} />
           ) : (
             <RenderForm
               setCardName={setCardName}
@@ -67,6 +68,7 @@ function App() {
               borderColor={dominantColor.borderColor}
               inputBg={dominantColor.inputBg}
               inputText={dominantColor.inputText}
+              buttonColor={dominantColor.buttonColor}
             />
           )}
         </div>

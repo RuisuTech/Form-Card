@@ -11,6 +11,7 @@ interface RenderFormProps {
   borderColor: string;
   inputBg: string;
   inputText: string;
+  buttonColor: string;
 }
 
 const formatCardNumber = (number: string): string => {
@@ -30,6 +31,7 @@ const RenderForm: React.FC<RenderFormProps> = ({
   borderColor,
   inputBg,
   inputText,
+  buttonColor,
 }) => {
   const [cardNumber, setCardNumberState] = React.useState('');
   const [expMonth, setExpMonthState] = React.useState('');
@@ -125,10 +127,11 @@ const RenderForm: React.FC<RenderFormProps> = ({
           </div>
         </div>
         <input
-          className="bg-[#21092f] text-white w-full my-8 p-4 rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
+          className="text-white w-full my-8 p-4 rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
           type="button"
           value="Confirmar"
           onClick={onConfirm}
+          style={{ backgroundColor: buttonColor }}
         />
       </div>
     </div>

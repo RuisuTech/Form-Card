@@ -8,6 +8,7 @@ interface RenderCardProps {
   cvc: string;
   cardImage?: string;
   textColor?: string;
+  overlayGradient?: string;
 }
 
 const formatCardNumber = (number: string): string => {
@@ -27,7 +28,8 @@ const RenderCards: React.FC<RenderCardProps> = ({
   expYear,
   cvc,
   cardImage,
-  textColor = '#dedddf'
+  textColor = '#dedddf',
+  overlayGradient,
 }) => {
   return (
     <div className={`relative h-[225px] w-screen md:h-screen md:w-[600px]`}>
@@ -36,6 +38,12 @@ const RenderCards: React.FC<RenderCardProps> = ({
         style={cardImage ? { backgroundImage: `url(${cardImage})` } : undefined}
       />
       <div className="absolute inset-0 z-[-1] bg-black/50" />
+      {overlayGradient && (
+        <div
+          className="absolute inset-0 z-[-1]"
+          style={{ backgroundImage: overlayGradient }}
+        />
+      )}
       <div className="flex items-center justify-center h-[300px] w-screen">
         <div className="md:w-[420px] md:h-[232px] md:bottom-[250px] md:left-[400px] md:top-auto flex z-30 bg-[url('/bg-card-back.png')] bg-contain bg-no-repeat w-[280px] h-[155px] absolute top-6 right-6 rounded-2xl overflow-hidden">
           <p className="md:top-[98px] md:right-12 md:text-xl absolute top-[62px] right-8" style={{ color: textColor }}>{cvc || '000'}</p>
